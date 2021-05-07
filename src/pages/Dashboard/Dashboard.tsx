@@ -1,15 +1,12 @@
 import React from 'react'
+import { RouteComponentProps, withRouter } from 'react-router'
 
-interface Props {
-    
-}
-
-const Dashboard = (props: Props) => {
+const Dashboard = (props: RouteComponentProps) => {
     return (
         <div>
-            Hola
+            Dashboard
         </div>
     )
 }
 
-export default Dashboard
+export default withRouter(Dashboard)
