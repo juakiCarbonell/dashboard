@@ -49,8 +49,6 @@ const Dashboard = (props: Props) => {
       </CalumnWrapper>
 
       <CalumnWrapper>
- 
-
         <Column title="Progress" tasks={PRGRESS_TASKS} />
       </CalumnWrapper>
 
@@ -71,3 +69,17 @@ const DashboardWrapper = styled.div`
 const CalumnWrapper = styled.div``;
 
 export default Dashboard;
+/*
+import React from 'react'
+import { RouteComponentProps, withRouter } from 'react-router'
+
+ const Dashboard = (props: RouteComponentProps) => {
+    return (
+        <div>
+            Dashboard
+        </div>
+    )
+}
+
+export default withRouter(Dashboard)
+ */
