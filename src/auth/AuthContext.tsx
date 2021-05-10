@@ -1,8 +1,9 @@
 import React, { Component, ReactNode } from 'react';
+import { User } from '../interface';
 
 export interface IAuthContext {
   isAuth: boolean;
-  login: () => void;
+  login: (user: User) => void;
 }
 
 const AuthContextDefault: IAuthContext = {
@@ -14,14 +15,22 @@ interface Props {
   children: ReactNode;
 }
 
-const AuthContext = React.createContext<IAuthContext>(AuthContextDefault);
+interface State {
+  isAuth: boolean;
+  user: User;
+}
 
-class AuthProvider extends Component<Props> {
+const AuthContext = React.createContext<IAuthContext>(AuthContextDefault);
+class AuthProvider extends Component<Props, State> {
   state = {
     isAuth: false,
+    user: {
+      name: '',
+      email: '',
+    },
   };
 
-  login = () => this.setState({ isAuth: true });
+  login = (user: User) => this.setState({ isAuth: true, user: user });
 
   render() {
     return (

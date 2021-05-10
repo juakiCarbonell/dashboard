@@ -1,4 +1,4 @@
-export interface FormUser {
-  user: string;
-  password: string;
+export interface User {
+  name: string;
+  email: string;
 }
