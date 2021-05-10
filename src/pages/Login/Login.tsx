@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
-import { AuthConsumer } from '../../auth/AuthContext';
+import { AppConsumer } from '../../context/AppContext';
 import { User } from '../../interface';
 import UserForm from './components/UserForm';
 
@@ -22,14 +22,14 @@ const Login = () => {
   };
 
   return (
-    <AuthConsumer>
+    <AppConsumer>
       {({ login }) => (
         <LoginWrapper>
           <h1>TO DO LIST APP</h1>
           <UserForm handleSubmit={(user: User) => handleSubmit(user, login)} />
         </LoginWrapper>
       )}
-    </AuthConsumer>
+    </AppConsumer>
   );
 };
 

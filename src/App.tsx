@@ -1,22 +1,20 @@
-import Task from './pages/Task/Task';
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { AuthProvider } from './auth/AuthContext';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { AppProvider } from './context/AppContext';
 import Dashboard from './pages/Dashboard/Dashboard';
 
 import './App.css';
 import Login from './pages/Login/Login';
-import ProtectedRoute from './auth/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 function App() {
   return (
     <Router>
-      <AuthProvider>
+      <AppProvider>
         <Switch>
           <Route path="/login" component={Login} />
           <ProtectedRoute path="/dashboard" component={Dashboard} />
         </Switch>
-      </AuthProvider>
+      </AppProvider>
     </Router>
   );
 }

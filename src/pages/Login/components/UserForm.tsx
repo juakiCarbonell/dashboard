@@ -61,7 +61,7 @@ const UserForm = ({ handleSubmit }: Props) => (
               )}
             </InputWrapper>
             <Submit type="submit" disabled={!isValid}>
-              ENTRAR
+              SUBMIT
             </Submit>
           </Form>
         );

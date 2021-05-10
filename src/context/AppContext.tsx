@@ -1,12 +1,12 @@
 import React, { Component, ReactNode } from 'react';
 import { User } from '../interface';
 
-export interface IAuthContext {
+export interface IAppContext {
   isAuth: boolean;
   login: (user: User) => void;
 }
 
-const AuthContextDefault: IAuthContext = {
+const AppContextDefault: IAppContext = {
   isAuth: false,
   login: () => {},
 };
@@ -20,8 +20,8 @@ interface State {
   user: User;
 }
 
-const AuthContext = React.createContext<IAuthContext>(AuthContextDefault);
-class AuthProvider extends Component<Props, State> {
+const AppContext = React.createContext<IAppContext>(AppContextDefault);
+class AppProvider extends Component<Props, State> {
   state = {
     isAuth: false,
     user: {
@@ -34,18 +34,18 @@ class AuthProvider extends Component<Props, State> {
 
   render() {
     return (
-      <AuthContext.Provider
+      <AppContext.Provider
         value={{
           isAuth: this.state.isAuth,
           login: this.login,
         }}
       >
         {this.props.children}
-      </AuthContext.Provider>
+      </AppContext.Provider>
     );
   }
 }
 
-const AuthConsumer = AuthContext.Consumer;
+const AppConsumer = AppContext.Consumer;
 
-export { AuthProvider, AuthConsumer };
+export { AppProvider, AppConsumer };

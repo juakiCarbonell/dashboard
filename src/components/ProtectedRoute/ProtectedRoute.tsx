@@ -1,8 +1,8 @@
 import { Redirect, Route, RouteProps } from 'react-router';
-import { AuthConsumer } from './AuthContext';
+import { AppConsumer } from '../../context/AppContext';
 
 const ProtectedRoute = ({ component: Component, ...rest }: RouteProps) => (
-  <AuthConsumer>
+  <AppConsumer>
     {({ isAuth }) => (
       <Route
         render={(props) =>
@@ -15,6 +15,6 @@ const ProtectedRoute = ({ component: Component, ...rest }: RouteProps) => (
         {...rest}
       />
     )}
-  </AuthConsumer>
+  </AppConsumer>
 );
 export default ProtectedRoute;
